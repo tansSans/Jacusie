@@ -1,0 +1,629 @@
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jacusie - Ekskul Jepang</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #e63946;
+        --secondary: #f1faee;
+        --dark: #1d3557;
+        --light: #f8f9fa;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Nunito", sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+      }
+
+      header {
+        background-color: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+        font-family: "Noto Sans JP", sans-serif;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 1.5rem;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .cover {
+        margin-top: 4.5rem;
+      }
+
+      .hero {
+        padding: 4rem 2rem;
+        margin: 12rem;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .sejarah {
+        padding: 12rem 8rem;
+        max-width: 1800px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+        background-color: var(--dark);
+      }
+
+      .sejarah .logo {
+        flex: 1 1 250px;
+        text-align: center;
+      }
+
+      .sejarah .logo img {
+        max-width: 200px;
+        height: auto;
+      }
+
+      .sejarah .deskripsi {
+        flex: 2 1 400px;
+      }
+
+      .sejarah .deskripsi h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--light);
+      }
+
+      .sejarah .deskripsi p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: justify;
+        color: var(--light);
+      }
+
+      .galeri {
+        padding: 12rem 2rem;
+        background-color: var(--secondary);
+      }
+
+      .galeri h3 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+      }
+
+      .galeri-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        max-width: 1800px;
+        margin: 0 auto;
+      }
+
+      .galeri-grid img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .galeri-grid img:hover {
+        transform: scale(1.05);
+      }
+
+      .prestasi {
+        padding: 12rem 15rem;
+        max-width: 1800px;
+        margin: 0 auto;
+        background-color: var(--dark);
+      }
+
+      .prestasi h3 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--light);
+        margin-bottom: 2rem;
+      }
+
+      .prestasi ul {
+        list-style: none;
+        padding-left: 0;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--light);
+      }
+
+      .prestasi li::before {
+        content: "★ ";
+        color: var(--light);
+      }
+
+      .anggota {
+        padding: 12rem 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .anggota h3 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+      }
+
+      .periode {
+        margin-bottom: 2rem;
+      }
+
+      .periode h4 {
+        color: var(--dark);
+        font-size: 1.3rem;
+      }
+
+      .anggota-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .card {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .card img {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 1rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .card h5 {
+        margin: 0.3rem 0;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        color: gray;
+      }
+
+      .periode-lainnya {
+        display: none;
+      }
+
+      .periode {
+        margin-top: 2rem;
+      }
+
+      .periode h4 {
+        color: var(--dark);
+        font-size: 1.3rem;
+      }
+
+      .tombol {
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+
+      .tombol button {
+        background-color: var(--primary);
+        color: white;
+        padding: 0.7rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .pendaftaran {
+        padding: 12rem 2rem;
+        background-color: var(--dark);
+        text-align: center;
+      }
+
+      .pendaftaran h3 {
+        font-size: 1.8rem;
+        color: var(--light);
+        margin-bottom: 1rem;
+      }
+
+      .pendaftaran p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 1.5rem auto;
+        line-height: 1.6;
+        color: var(--light);
+      }
+
+      .pendaftaran a {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .kegiatan {
+        padding: 12rem 2rem;
+        background-color: #f8f8f8;
+        text-align: center;
+      }
+
+      .kegiatan h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .kegiatan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .kegiatan-grid .card1 {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        text-align: left;
+        transition: transform 0.2s ease;
+      }
+
+      .card1 {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .kegiatan-grid .card1:hover {
+        transform: translateY(-5px);
+      }
+
+      .kegiatan-grid .card1 h4 {
+        margin-bottom: 0.8rem;
+        color: var(--dark);
+      }
+
+      .kegiatan-grid .card1 p {
+        color: #555;
+        line-height: 1.5;
+        font-size: 0.95rem;
+        text-align: justify;
+      }
+
+      .card1 img {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 1rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .kontak {
+        padding: 12rem 2rem;
+        background-color: #f8f8f8;
+        text-align: center;
+      }
+
+      .kontak h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .kontak p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 1.5rem auto;
+        line-height: 1.6;
+      }
+
+      .kontak ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .kontak ul li {
+        font-size: 1.1rem;
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .kontak ul li a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .kontak ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .footer {
+        background-color: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: 3rem;
+      }
+
+      .footer p {
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          margin-top: 1rem;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        nav a {
+          margin: 0.5rem;
+        }
+
+        .sejarah {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .sejarah .deskripsi {
+          text-align: justify;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Jacusie - ジャクシイエ</h1>
+      <nav>
+        <a href="#">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#prestasi">Prestasi</a>
+        <a href="#anggota">Anggota</a>
+        <a href="#pendaftaran">Pendaftaran</a>
+        <a href="#kegiatan">Kegiatan</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </header>
+
+    <section class="cover">
+      <img src="Gambar/cover.jpg" width="100%" />
+    </section>
+
+    <section class="hero">
+      <h2>Selamat datang di Jacusie!</h2>
+      <p>
+        Jacusie adalah ekstrakurikuler yang mempelajari bahasa dan budaya Jepang
+        dengan cara yang menyenangkan, interaktif, dan penuh kreativitas.
+      </p>
+    </section>
+
+    <section class="sejarah" id="tentang">
+      <div class="logo">
+        <img src="Gambar/logo.png" alt="Logo Jacusie" />
+      </div>
+      <div class="deskripsi">
+        <h3>Sejarah Jacusie</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+          necessitatibus ipsam expedita laboriosam consequatur deleniti numquam
+          dolor ipsa. Voluptatibus praesentium vel quisquam natus maxime laborum
+          quidem asperiores illo dolor repudiandae?
+        </p>
+      </div>
+    </section>
+
+    <section class="galeri" id="galeri">
+      <h3>Galeri</h3>
+      <div class="galeri-grid">
+        <img src="Gambar/4.jpg" alt="4" />
+        <img src="Gambar/6.jpg" alt="5" />
+        <img src="Gambar/7.jpg" alt="6" />
+        <img src="Gambar/8.jpg" alt="7" />
+        <img src="Gambar/11.jpg" alt="10" />
+        <img src="Gambar/1.jpg" alt="1" />
+        <img src="Gambar/2.jpg" alt="2" />
+        <img src="Gambar/9.jpg" alt="3" />
+        <img src="Gambar/10.jpg" alt="9" />
+        <img src="Gambar/12.jpg" alt="11" />
+      </div>
+    </section>
+
+    <section class="prestasi" id="prestasi">
+      <h3>Prestasi Jacusie</h3>
+      <ul>
+        <li>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, eaque?
+        </li>
+        <li>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, eaque?
+        </li>
+        <li>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, eaque?
+        </li>
+        <li>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, eaque?
+        </li>
+      </ul>
+    </section>
+
+    <section class="anggota" id="anggota">
+      <h3>Badan Pengurus Harian Jacusie</h3>
+
+      <div class="periode">
+        <h4>Periode 2024/2025</h4>
+        <div class="anggota-grid">
+          <div class="card">
+            <img src="Gambar/Profil-Ketua.jpg" alt="Ketua" />
+            <h5>Sultan Rizky Akbar</h5>
+            <p>Ketua Umum</p>
+          </div>
+          <div class="card">
+            <img src="Gambar/Profil-Wakil.jpg" alt="Wakil Ketua" />
+            <h5>Jeneva Calista Ivana S</h5>
+            <p>Wakil Ketua</p>
+          </div>
+          <div class="card">
+            <img src="Gambar/Profil-Sekretaris.jpg" alt="Sekretaris" />
+            <h5>Mohammad Nouval Juniansyah H. A</h5>
+            <p>Sekretaris</p>
+          </div>
+          <div class="card">
+            <img src="Gambar/Profil-Bendahara.jpg" alt="Bendahara" />
+            <h5>Aulia Dian Paramitha</h5>
+            <p>Bendahara</p>
+          </div>
+          <div class="card">
+            <img src="Gambar/Profil-Humas.jpg" alt="Humas" />
+            <h5>Divine Evania</h5>
+            <p>Humas</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="peridode-lainnya" id="periode-lainnya">
+        <div class="periode">
+          <h4>Periode 2023/2024</h4>
+        </div>
+        <div class="periode">
+          <h4>Periode 2022/2023</h4>
+        </div>
+      </div>
+
+      <div class="tombol">
+        <button onclick="togglePeriode()">Tampilkan Periode Sebelumnya</button>
+      </div>
+    </section>
+
+    <section class="pendaftaran" id="pendaftaran">
+      <h3>Pendaftaran Anggota</h3>
+      <p>
+        Tertarik untuk bergabung dengan Jacusie dan ikut menjelajahi budaya
+        Jepang bersama kami? Daftarkan dirimu melalui formulir berikut dan
+        jadilah bagian dari perjalanan kami yang menyenangkan dan penuh
+        pembelajaran!
+      </p>
+      <a href="https://forms.gle/wsPtJMNc1VrDDWkH8" target="_blank">
+        Isi Formulir Pendaftaran
+      </a>
+    </section>
+
+    <section class="kegiatan" id="kegiatan">
+      <h3>Kegiatan Jacusie</h3>
+      <div class="kegiatan-grid">
+        <div class="card1">
+          <img src="Gambar/Kelas-Bahasa.jpg" alt="Ikon Kelas Bahasa" />
+          <h4>Kelas Bahasa</h4>
+          <p>
+            Diselenggarakan 2 kali setiap bulan, kelas ini mengajarkan
+            dasar-dasar bahasa Jepang mulai dari hiragana, katakana, hingga
+            percakapan dasar.
+          </p>
+        </div>
+        <div class="card1">
+          <img src="Gambar/Kelas-Budaya.jpg" alt="Ikon Kelas Budaya" />
+          <h4>Kelas Budaya</h4>
+          <p>
+            Diadakan 2 kali setiap bulan, kelas ini memperkenalkan budaya Jepang
+            seperti origami, kaligrafi (Shodou), nonton anime, hingga
+            adat-istiadat dan sejarah Jepang.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="kontak" id="kontak">
+      <h3>Kontak Kami</h3>
+      <p>
+        Jika kamu memiliki pertanyaan atau ingin tahu lebih lanjut tentang
+        Jacusie, jangan ragu untuk menghubungi kami melalui media sosial kami.
+      </p>
+      <ul>
+        <li>
+          Instagram:
+          <a href="https://www.instagram.com/jacusie.68/" target="_blank"
+            >@jacusie.68</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Jacusie. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+      function togglePeriode() {
+        const section = document.getElementById("periode-lainnya");
+        const isVisible = section.style.display === "block";
+        section.style.display = isVisible ? "none" : "block";
+        event.target.textContent = isVisible
+          ? "Tampilkan Periode Sebelumnya"
+          : "Sembunyikan Periode Sebelumnya";
+      }
+    </script>
+  </body>
+</html>
