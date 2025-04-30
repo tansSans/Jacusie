@@ -26,6 +26,10 @@
         color: var(--dark);
       }
 
+      section {
+        margin-bottom: 2rem;
+      }
+
       header {
         background-color: var(--primary);
         color: white;
@@ -44,6 +48,12 @@
       header h1 {
         font-size: 1.8rem;
         font-family: "Noto Sans JP", sans-serif;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
 
       nav a {
@@ -303,9 +313,10 @@
       .kegiatan-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
+        gap: 1rem;
         max-width: 900px;
         margin: 0 auto;
+        flex-direction: column;
       }
 
       .kegiatan-grid .card1 {
@@ -430,6 +441,12 @@
 
         .sejarah .deskripsi {
           text-align: justify;
+        }
+
+        @media (min-width: 600px) {
+          .kegiatan-grid {
+            flex-direction: row;
+          }
         }
       }
     </style>
